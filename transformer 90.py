@@ -137,10 +137,10 @@ def create_sequences(data, target_data, sequence_length):
     X, y = [], []
     for i in range(len(data) - sequence_length):
         X.append(data.iloc[i:(i + sequence_length)].values)
-        y.append(target_data.iloc[i + sequence_length].values) # 预测下一天
+        y.append(target_data.iloc[i + sequence_length].values) 
     return np.array(X), np.array(y)
 
-SEQUENCE_LENGTH = 90 # 使用90天数据预测未来一天
+SEQUENCE_LENGTH = 90 # 使用90天数据预测
 
 X_train_seq, y_train_seq = create_sequences(X_train_scaled, y_train_scaled, SEQUENCE_LENGTH)
 X_test_seq, y_test_seq = create_sequences(X_test_scaled, y_test_scaled, SEQUENCE_LENGTH)
